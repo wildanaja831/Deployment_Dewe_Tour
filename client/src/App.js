@@ -14,6 +14,7 @@ import HomeAdmin from "./pages/admin/home";
 import IncomeTrip from "./pages/admin/trip";
 import AddNewTrip from "./pages/admin/add-trip";
 import Country from "./pages/admin/country";
+import DetailTripAdmin from "./pages/admin/detail-trip";
 
 function App() {
   const [state, dispatch] = useContext(UserContext);
@@ -68,6 +69,7 @@ function App() {
             <Route path="/admin" element={<HomeAdmin />} />
             <Route path="/trip" element={<IncomeTrip />} />
             <Route path="/add-trip" element={<AddNewTrip />} />
+            <Route path="/admin-trip/:id" element={<DetailTripAdmin />} />
             <Route path="/country" element={<Country />} />
           </Route>
         </Routes>

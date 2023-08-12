@@ -3,6 +3,7 @@ import { Navbars } from "../../components/navbar";
 import { API } from "../../config/api";
 import { useNavigate } from "react-router-dom";
 import { FormatRupiah } from "@arismun/format-rupiah";
+import { useState } from "react";
 
 const IncomeTrip = () => {
   const navigate = useNavigate();
@@ -11,6 +12,15 @@ const IncomeTrip = () => {
     return response.data.data;
   });
 
+  const handleDetail = async (id) => {
+    try {
+      const response = await API.get(`/trip/${id}`);
+      navigate(`/admin-trip/${id}`);
+      return response.data.data;
+    } catch (error) {
+      console.log("Ini Error Ke Payment", error);
+    }
+  };
   return (
     <>
       <Navbars />
@@ -30,11 +40,12 @@ const IncomeTrip = () => {
           {trips?.map((data) => (
             <div
               key={data.id}
+              onClick={() => handleDetail(data?.id)}
               className="p-2 rounded-md shadow-lg relative hover:border-yellow-300 border-2 border-white hover:cursor-pointer"
             >
               <div>
                 <img
-                  className="w-full rounded-md object-cover"
+                  className="w-full h-[250px] rounded-md object-cover"
                   src={data.image}
                 />
                 <p className="px-3 py-2 bg-white absolute rounded-l-md right-[8px] top-[30px]">

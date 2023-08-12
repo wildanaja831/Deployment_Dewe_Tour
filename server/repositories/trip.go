@@ -28,7 +28,7 @@ func (r *repository) CreateTrip(trip models.Trip) (models.Trip, error) {
 
 func (r *repository) FindTrip() ([]models.Trip, error) {
 	var trip []models.Trip
-	err := r.db.Preload("Country").Find(&trip).Error
+	err := r.db.Preload("Country").Order("CreatedAt").Find(&trip).Error
 
 	return trip, err
 }

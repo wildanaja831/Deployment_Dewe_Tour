@@ -30,7 +30,7 @@ const Content = (props) => {
         >
           <div>
             <img
-              className="w-full rounded-md object-cover"
+              className="w-full h-[250px] rounded-md object-cover"
               src={props?.image}
             />
             <p className="px-3 py-2 text-red-600 bg-white absolute rounded-l-md right-[8px] top-[30px]">
@@ -55,7 +55,7 @@ const Content = (props) => {
         >
           <div>
             <img
-              className="w-full rounded-md object-cover"
+              className="w-full h-[250px] rounded-md object-cover"
               src={props?.image}
             />
             <p className="px-3 py-2 bg-white absolute rounded-l-md right-[8px] top-[30px]">
