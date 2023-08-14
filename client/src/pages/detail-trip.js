@@ -36,7 +36,6 @@ const DetailTrip = () => {
     const response = await API.get(`/trip/${id}`);
     return response.data.data;
   });
-  console.log(trips);
 
   const handleBuy = async () => {
     try {
@@ -96,33 +95,33 @@ const DetailTrip = () => {
               <p className="text-gray-400 ms-[160px]">Date Trip</p>
             </div>
             <div className="flex my-2">
-              <div className="text-[18px] flex font-semibold me-[40px]">
-                <img className="w-[40px] h-[40px]" src={Hotel} />
+              <div className="my-auto text-[18px] flex font-semibold me-[40px]">
+                <img className="w-[30px] h-[30px]" src={Hotel} />
                 <p className="text-[18px] ms-2 font-semibold">
                   {trips?.accomodation}
                 </p>
               </div>
-              <div className="text-[18px] flex font-semibold me-[25px]">
-                <img className="w-[40px] h-[40px]" src={Plane} />
-                <p className="w-[150px] text-[18px] ms-2 font-semibold">
+              <div className="my-auto text-[18px] flex font-semibold me-[25px]">
+                <img className="w-[30px] h-[30px] my-auto" src={Plane} />
+                <p className="w-[170px] text-[18px] ms-2 font-semibold">
                   {trips?.transportation}
                 </p>
               </div>
-              <div className="text-[18px] flex font-semibold me-[45px]">
-                <img className="w-[40px] h-[40px]" src={Eat} />
-                <p className="w-[150px] text-[18px] ms-2 font-semibold">
+              <div className="my-auto text-[18px] flex font-semibold me-[25px]">
+                <img className="w-[30px] h-[30px]" src={Eat} />
+                <p className="w-[190px] text-[18px] ms-2 font-semibold">
                   {trips?.eat}
                 </p>
               </div>
-              <div className="text-[18px] flex font-semibold me-[45px]">
-                <img className="w-[40px] h-[40px]" src={Duration} />
+              <div className="my-auto text-[18px] flex font-semibold me-[40px]">
+                <img className="w-[30px] h-[30px]" src={Duration} />
                 <p className="w-[150px] text-[18px] ms-2 font-semibold">
                   {trips?.day} Days {trips?.night} Nights
                 </p>
               </div>
-              <div className="text-[18px] flex font-semibold">
-                <img className="w-[40px] h-[40px]" src={Dates} />
-                <p className="w-[160px] text-[18px] ms-2 font-semibold">
+              <div className="my-auto text-[18px] flex font-semibold">
+                <img className="w-[30px] h-[30px]" src={Dates} />
+                <p className="w-[170px] text-[18px] ms-2 font-semibold">
                   {parsedDate}
                 </p>
               </div>

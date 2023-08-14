@@ -7,6 +7,7 @@ import Plane from "../../assets/images/plane-detail.png";
 import Eat from "../../assets/images/meal-detail.png";
 import Duration from "../../assets/images/duration-detail.png";
 import Dates from "../../assets/images/calendar-detail.png";
+import Delete from "../../assets/images/delete-admin.png";
 import { useQuery } from "react-query";
 import { API, setAuthToken } from "../../config/api";
 import { useParams } from "react-router-dom";
@@ -25,7 +26,6 @@ const DetailTripAdmin = () => {
     const response = await API.get(`/trip/${id}`);
     return response.data.data;
   });
-  console.log(trips);
 
   const inputDate = trips?.dateTrip;
   const parsedDate = moment(inputDate).format("DD MMMM YYYY");
@@ -71,33 +71,33 @@ const DetailTripAdmin = () => {
               <p className="text-gray-400 ms-[160px]">Date Trip</p>
             </div>
             <div className="flex my-2">
-              <div className="text-[18px] flex font-semibold me-[40px]">
-                <img className="w-[40px] h-[40px]" src={Hotel} />
+              <div className="my-auto text-[18px] flex font-semibold me-[40px]">
+                <img className="w-[30px] h-[30px]" src={Hotel} />
                 <p className="text-[18px] ms-2 font-semibold">
                   {trips?.accomodation}
                 </p>
               </div>
-              <div className="text-[18px] flex font-semibold me-[25px]">
-                <img className="w-[40px] h-[40px]" src={Plane} />
-                <p className="w-[150px] text-[18px] ms-2 font-semibold">
+              <div className="my-auto text-[18px] flex font-semibold me-[25px]">
+                <img className="w-[30px] h-[30px] my-auto" src={Plane} />
+                <p className="w-[170px] text-[18px] ms-2 font-semibold">
                   {trips?.transportation}
                 </p>
               </div>
-              <div className="text-[18px] flex font-semibold me-[45px]">
-                <img className="w-[40px] h-[40px]" src={Eat} />
-                <p className="w-[150px] text-[18px] ms-2 font-semibold">
+              <div className="my-auto text-[18px] flex font-semibold me-[25px]">
+                <img className="w-[30px] h-[30px]" src={Eat} />
+                <p className="w-[190px] text-[18px] ms-2 font-semibold">
                   {trips?.eat}
                 </p>
               </div>
-              <div className="text-[18px] flex font-semibold me-[45px]">
-                <img className="w-[40px] h-[40px]" src={Duration} />
+              <div className="my-auto text-[18px] flex font-semibold me-[40px]">
+                <img className="w-[30px] h-[30px]" src={Duration} />
                 <p className="w-[150px] text-[18px] ms-2 font-semibold">
                   {trips?.day} Days {trips?.night} Nights
                 </p>
               </div>
-              <div className="text-[18px] flex font-semibold">
-                <img className="w-[40px] h-[40px]" src={Dates} />
-                <p className="w-[160px] text-[18px] ms-2 font-semibold">
+              <div className="my-auto text-[18px] flex font-semibold">
+                <img className="w-[30px] h-[30px]" src={Dates} />
+                <p className="w-[170px] text-[18px] ms-2 font-semibold">
                   {parsedDate}
                 </p>
               </div>
@@ -117,13 +117,11 @@ const DetailTripAdmin = () => {
               <p className="text-[22px] font-semibold">/ Person</p>
             </div>
           </div>
-          <div className="flex justify-end mt-8 me-2">
-            <button className="bg-blue-600 me-4 hover:bg-blue-700 rounded-md text-white px-8 py-2 ">
-              UPDATE
-            </button>
-            <button className="bg-red-600 hover:bg-red-700 rounded-md text-white px-8 py-2 ">
-              DELETE
-            </button>
+          <div className="flex justify-between py-2 px-2 border-b-2">
+            <p className="text-[22px] font-semibold">Income :</p>
+            <p className="text-[22px] me-4 font-semibold text-[#FFAF00]">
+              <FormatRupiah value={trips?.income} />
+            </p>
           </div>
         </div>
       </div>

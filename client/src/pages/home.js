@@ -87,6 +87,7 @@ const Home = () => {
             {trips?.map((data) => {
               return (
                 <Content
+                  key={data?.id}
                   show={show}
                   setShow={setShow}
                   id={data?.id}

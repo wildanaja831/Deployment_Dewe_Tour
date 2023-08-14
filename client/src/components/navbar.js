@@ -17,7 +17,6 @@ export const NavbarHome = ({ show, setShow }) => {
   const [state, dispatch] = useContext(UserContext);
   const [registerModal, setRegisterModal] = useState(false);
 
-  console.log(state.user.role);
   const navigate = useNavigate();
   const logout = () => {
     dispatch({
@@ -52,18 +51,37 @@ export const NavbarHome = ({ show, setShow }) => {
                 />
               }
             >
-              <p
-                onClick={() => navigate("/profile")}
-                className="flex px-6 py-3 text-[14px] hover:bg-slate-200 cursor-pointer my-auto font-semibold"
-              >
-                <img className="me-2 w-6" src={Profile} /> Profile
-              </p>
-              <p
-                onClick={() => navigate("/my-trip")}
-                className="flex px-6 py-3 text-[14px] border-b-2 hover:bg-slate-200 cursor-pointer my-auto font-semibold"
-              >
-                <img className="me-2 w-6" src={Pay} /> Pay
-              </p>
+              {state?.user.role === "admin" ? (
+                <div>
+                  <p
+                    onClick={() => navigate("/trip")}
+                    className="flex px-6 py-3 text-[14px] hover:bg-slate-200 cursor-pointer my-auto font-semibold"
+                  >
+                    <img className="me-2 w-6" src={Income} /> Trip
+                  </p>
+                  <p
+                    onClick={() => navigate("/country")}
+                    className="flex px-6 py-3 text-[14px] border-b-2 hover:bg-slate-200 cursor-pointer my-auto font-semibold"
+                  >
+                    <img className="me-2 w-6" src={Pay} /> Country
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <p
+                    onClick={() => navigate("/profile")}
+                    className="flex px-6 py-3 text-[14px] hover:bg-slate-200 cursor-pointer my-auto font-semibold"
+                  >
+                    <img className="me-2 w-6" src={Profile} /> Profile
+                  </p>
+                  <p
+                    onClick={() => navigate("/my-trip")}
+                    className="flex px-6 py-3 text-[14px] border-b-2 hover:bg-slate-200 cursor-pointer my-auto font-semibold"
+                  >
+                    <img className="me-2 w-6" src={Pay} /> Pay
+                  </p>
+                </div>
+              )}
               <p
                 onClick={logout}
                 className="flex px-6 py-3 text-[14px] hover:bg-slate-200 cursor-pointer my-auto font-semibold"
